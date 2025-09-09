@@ -1,7 +1,9 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Catatan Keuangan</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -138,7 +140,7 @@
             // Fungsi untuk menampilkan notifikasi
             function showNotification(message, type = 'success') {
                 notification.textContent = message;
-                notification.className = notification ${type} show;
+                notification.className = `notification ${type} show`;
                 
                 setTimeout(() => {
                     notification.classList.remove('show');
@@ -172,7 +174,7 @@
                 
                 sortedTransactions.forEach(t => {
                     const item = document.createElement('div');
-                    item.className = transaction-item flex justify-between items-center p-4 border rounded-lg ${t.type === 'income' ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'};
+                    item.className = `transaction-item flex justify-between items-center p-4 border rounded-lg ${t.type === 'income' ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`;
                     
                     const dateObj = new Date(t.date);
                     const formattedDate = dateObj.toLocaleDateString('id-ID', {
@@ -225,7 +227,7 @@
                     } else if (type === "weekly") {
                         const weekStart = new Date(date);
                         weekStart.setDate(date.getDate() - date.getDay());
-                        key = Minggu ${weekStart.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })};
+                        key = `Minggu ${weekStart.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })}`;
                     } else if (type === "monthly") {
                         key = date.toLocaleDateString('id-ID', { year: 'numeric', month: 'long' });
                     }
@@ -353,4 +355,3 @@
     </script>
 </body>
 </html>
-gimana caranya terhubung ke spredshet
